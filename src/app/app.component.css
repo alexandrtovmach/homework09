@@ -1,0 +1,9 @@
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+.content {
+    width: 600px;
+    height: 700px;
+    margin: 20px auto;
+}

@@ -1,0 +1,12 @@
+<div id="lapscndmr" class="numbers" *ngIf="laps.length">{{beautifierTime(secndomerLapNum)}}</div>
+<div id="scndmr" class="numbers">{{beautifierTime(secndomerNum)}}</div>
+<button (click)="run('scndmr')" *ngIf="!runned">RUN</button>
+<button (click)="pause()" *ngIf="runned">PAUSE</button>
+<button (click)="lap(true)" *ngIf="runned">LAP</button>
+<button (click)="clear()" *ngIf="!runned">CLEAR</button>
+
+<div id="resultField" *ngFor="let lap of laps">
+    <span>TOTAL:{{lap.total}}</span>
+    <span>LAP:{{lap.lap}}</span>
+    <span style="color: green">RESULT:{{lap.res}}</span>
+</div>
