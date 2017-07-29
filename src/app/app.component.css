@@ -1,9 +1,48 @@
 h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
 }
-.content {
-    width: 600px;
+.centerContent {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.container {
+    width: 400px;
     height: 700px;
     margin: 20px auto;
+}
+.content {
+    width: 400px;
+    height: 600px;    
+}
+.modes {
+    width: 400px;
+    height: 100px;    
+}
+:host /deep/ button {
+    width: 120px;
+    height: 40px;
+    font-family: sans-serif;
+    font-weight: 800;
+    border: 0;
+    transition: 1s;
+}
+:host /deep/ button:hover {
+    color: white;
+}
+:host /deep/ .run {
+    background-color: green;
+}
+:host /deep/ .pause {
+    background-color: yellow;
+}
+:host /deep/ .clear {
+    background-color: red;
+}
+:host /deep/ .numbers {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    width: 420px;
+    text-align: center;
 }

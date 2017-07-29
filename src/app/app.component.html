@@ -1,11 +1,13 @@
-<h1>Hello world</h1>
-<div class="modes">
-    <button (click)="chooseMode('clock')">CLOCK</button>
-    <button (click)="chooseMode('secundomer')">SECUNDOMER</button>
-    <button (click)="chooseMode('timer')">TIMER</button>
-</div>
-<div class="content">
-    <app-clock *ngIf="mode==='clock'"></app-clock>
-    <app-secundomer *ngIf="mode==='secundomer'"></app-secundomer>
-    <app-timer *ngIf="mode==='timer'"></app-timer>
+<h1>ANGULAR 4 <sup>I'm coming!</sup></h1>
+<div class="container centerContent">
+    <div class="modes centerContent">
+        <button (click)="chooseMode('clock')">CLOCK</button>
+        <button (click)="chooseMode('secundomer')">STOPWATCH</button>
+        <button (click)="chooseMode('timer')">TIMER</button>
+    </div>
+    <div class="content">
+        <app-clock *ngIf="mode==='clock'"></app-clock>
+        <app-secundomer *ngIf="mode==='secundomer'"></app-secundomer>
+        <app-timer *ngIf="mode==='timer'"></app-timer>
+    </div>
 </div>

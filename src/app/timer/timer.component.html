@@ -1,2 +1,9 @@
-<p>Timer:</p>
-<div class="numbers">00:00:00:000</div>
+<div class="wrap">
+    <div class="numbers">{{beautifierTime(timerNum)}}</div>
+    <label for="timer">Time duration in minutes:
+    <input name="timer" type="number" min="0" (blur)="re()" [(ngModel)]="inputTimer" [disabled]="runned" placeholder="timer minutes..."><br>
+    </label>
+    <button (click)="startTimer()" [disabled]="(timerNum <= 0)" *ngIf="!runned" class="run">START</button>
+    <button (click)="pauseTimer()" *ngIf="runned" class="pause">PAUSE</button>
+    <button (click)="clearTimer()" class="clear">CLEAR</button>
+</div>

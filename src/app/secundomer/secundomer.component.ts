@@ -42,7 +42,7 @@ export class SecundomerComponent implements OnInit {
     this.runned = true;
     if (this.secndomerLapNum) {this.lap(false)}
     let start = this.cacheTime = (this.cacheTime)? (Date.now() - (this.pauseTime - this.cacheTime)): Date.now();
-    this.intervalID = setInterval (this.bind(this.startSec, this, start, 'secndomerNum'), 120)
+    this.intervalID = setInterval (this.bind(this.startSec, this, start, 'secndomerNum'), 52)
   }
   pause(): void {
     this.pauseTime = Date.now()
@@ -63,18 +63,21 @@ export class SecundomerComponent implements OnInit {
     this.laps = [];
   }
   lap(continueLap): void {
-    console.log('aascw')
     if (continueLap) {
       clearInterval(this.intervalLapID);
       this.lapCacheTime = 0;
       this.lapPauseTime = 0;
-      this.laps.push({total: this.beautifierTime(this.secndomerNum), lap: this.beautifierTime(this.secndomerLapNum), res: (this.secndomerLapNum - this.secndomerPreviousLapNum)});
-      this.resStyle = (this.secndomerLapNum - this.secndomerPreviousLapNum < 0)? 'green': 'red';
+      this.laps.push({
+        total: this.beautifierTime(this.secndomerNum), 
+        lap: this.beautifierTime(this.secndomerLapNum), 
+        res: (this.secndomerLapNum - this.secndomerPreviousLapNum),
+        color: (this.secndomerLapNum - this.secndomerPreviousLapNum <= 0)? 'green': 'red'
+      });
       this.secndomerPreviousLapNum = this.secndomerLapNum;
     };
     this.lapRunned = true;
     let startLap = this.lapCacheTime = (this.lapCacheTime)? (Date.now() - (this.lapPauseTime - this.lapCacheTime)): Date.now();
-    this.intervalLapID = setInterval (this.bind(this.startSec, this, startLap, 'secndomerLapNum'), 120)
+    this.intervalLapID = setInterval (this.bind(this.startSec, this, startLap, 'secndomerLapNum'), 52)
   }
 
 

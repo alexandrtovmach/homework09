@@ -1,10 +1,17 @@
-.numbers {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 800;
+.wrap {
+    margin: auto;
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-.higestLap {
-   color: green; 
+#resultField:nth-child(2n-1) {
+    background-color: lightgrey;
+    width: 300px;
 }
-.lowestLap {
-    color: red;
+#resultField {
+    text-align: center;
+}
+#resultField span {
+    font-weight: bold;
 }
