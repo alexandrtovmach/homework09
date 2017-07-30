@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['clock.component.css']
 })
 export class ClockComponent implements OnInit {
+  clockTime: string;
 
   ngOnInit() {
-    var clock = document.getElementById('clock');
     runClock();
     setInterval (runClock, 1000);
     function runClock() {
       var time = new Date()
-      clock.innerHTML = String(time.toTimeString()).substr(0, 8);
+      this.clockTime = String(time.toTimeString()).substr(0, 8);
     }
   }
 
