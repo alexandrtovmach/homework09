@@ -10,11 +10,6 @@ export class TimerComponent implements OnInit {
   inputTimer: number = 0;
   idTimer: number;
   runned: boolean;
-  bind(func, context) {
-    return function () {
-      return func.call(context)
-    }
-  }
   beautifierTime(millisecnods: number): string {
     var formatter = new Intl.DateTimeFormat("ru", {
         hour: "2-digit",
@@ -25,10 +20,10 @@ export class TimerComponent implements OnInit {
   }
   startTimer(): void {
     this.runned = true;
-    this.idTimer = setInterval(this.bind(function () {
+    this.idTimer = setInterval( () => {
       this.timerNum -= 50;
       if (this.timerNum <= 0) {this.timerNum = 0; clearInterval(this.idTimer); this.runned = false; return}
-    }, this), 50)
+    }, 50)
   }
   pauseTimer(): void {
     this.runned = false;

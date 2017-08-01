@@ -9,12 +9,11 @@ export class ClockComponent implements OnInit {
   clockTime: string;
 
   ngOnInit() {
-    runClock();
-    setInterval (runClock, 1000);
-    function runClock() {
+    setInterval ( () => {
       var time = new Date()
       this.clockTime = String(time.toTimeString()).substr(0, 8);
-    }
+    }, 1000);
+     
   }
 
 }

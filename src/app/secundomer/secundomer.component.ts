@@ -22,11 +22,6 @@ export class SecundomerComponent implements OnInit {
   cacheTime: number;
   pauseTime: number;
   resStyle: string;
-  bind(func, context, arg, arg2) {
-    return function () {
-      return func.call(context, arg, arg2)
-    }
-  }
   beautifierTime(millisecnods: number): string {
     var formatter = new Intl.DateTimeFormat("ru", {
         hour: "2-digit",
@@ -35,14 +30,13 @@ export class SecundomerComponent implements OnInit {
     });
     return formatter.format(millisecnods - 3000*60*60) + ':' + String(millisecnods).slice(-3);
   }
-  startSec(start, a) {
-    this[a] = (Date.now() - start)
-  }
   run(id: string): void {
     this.runned = true;
     if (this.secndomerLapNum) {this.lap(false)}
     let start = this.cacheTime = (this.cacheTime)? (Date.now() - (this.pauseTime - this.cacheTime)): Date.now();
-    this.intervalID = setInterval (this.bind(this.startSec, this, start, 'secndomerNum'), 52)
+    this.intervalID = setInterval ( () => {
+      this.secndomerNum = (Date.now() - start)
+    }, 52)
   }
   pause(): void {
     this.pauseTime = Date.now()
@@ -77,7 +71,9 @@ export class SecundomerComponent implements OnInit {
     };
     this.lapRunned = true;
     let startLap = this.lapCacheTime = (this.lapCacheTime)? (Date.now() - (this.lapPauseTime - this.lapCacheTime)): Date.now();
-    this.intervalLapID = setInterval (this.bind(this.startSec, this, startLap, 'secndomerLapNum'), 52)
+    this.intervalLapID = setInterval ( () => {
+      this.secndomerLapNum = (Date.now() - startLap)
+    }, 52)
   }
 
 
